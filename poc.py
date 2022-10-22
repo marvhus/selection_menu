@@ -98,11 +98,21 @@ class Menu:
         #print('\033[H')
         print(f'{Fore.YELLOW}####### KEYBINDS #######{Fore.WHITE}')
         for k, v in self.keybinds.items():
-            print(f'{Fore.YELLOW}### "{Fore.MAGENTA}{k}{Fore.WHITE}" {Fore.GREEN}--- {Fore.BLUE}{v["name"]}{Fore.WHITE}')
+            print(
+                f'{Fore.YELLOW}###'
+            ,   f'"{Fore.MAGENTA}{k}{Fore.WHITE}"'
+            ,   f'{Fore.GREEN}---'
+            ,   f'{Fore.BLUE}{v["name"]}{Fore.WHITE}'
+            )
         print(f'{Fore.YELLOW}######### MENU #########{Fore.WHITE}')
         for k, v in self.actions.items():
             selected = f"{Fore.GREEN}x" if self.selection == k else " "
-            print(f'{Fore.YELLOW}### {Fore.CYAN}[{selected}{Fore.CYAN}] {Fore.GREEN}--- {Fore.BLUE}{v["name"]}{Fore.WHITE}')
+            print(
+                f'{Fore.YELLOW}###'
+            ,   f'{Fore.CYAN}[{selected}{Fore.CYAN}]'
+            ,   f'{Fore.GREEN}---'
+            ,   f'{Fore.BLUE}{v["name"]}{Fore.WHITE}'
+            )
         print(f'{Fore.YELLOW}########################{Fore.WHITE}')
 
     # Start menu
