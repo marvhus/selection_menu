@@ -1,4 +1,5 @@
 import os
+from colorama import Fore
 
 # https://stackoverflow.com/a/40492207
 class _Getch:
@@ -74,12 +75,13 @@ class Menu:
 
     ## Selection actions
     def option_1(self):
-        print('ACTION: option_1')
+        print(f'{Fore.GREEN}ACTION: {Fore.WHITE}option_1')
 
     def option_2(self):
-        print('ACTION: option_2')
+        print(f'{Fore.GREEN}ACTION: {Fore.WHITE}option_2')
 
     def exit_menu(self):
+        print(f'{Fore.RED}Exiting{Fore.WHITE}')
         exit(0)
             
     # Call callback
@@ -94,14 +96,14 @@ class Menu:
         # clear
         os.system('cls' if os.name == 'nt' else 'clear')
         #print('\033[H')
-        print('####### KEYBINDS #######')
+        print(f'{Fore.YELLOW}####### KEYBINDS #######{Fore.WHITE}')
         for k, v in self.keybinds.items():
-            print(f'\t\t"{k}" --- {v["name"]}')
-        print('######### MENU #########')
+            print(f'{Fore.YELLOW}### "{Fore.MAGENTA}{k}{Fore.WHITE}" {Fore.GREEN}--- {Fore.BLUE}{v["name"]}{Fore.WHITE}')
+        print(f'{Fore.YELLOW}######### MENU #########{Fore.WHITE}')
         for k, v in self.actions.items():
-            selected = "[x]" if self.selection == k else "[ ]"
-            print(f'\t\t{selected} --- {v["name"]}')
-        print('########################')
+            selected = f"{Fore.GREEN}x" if self.selection == k else " "
+            print(f'{Fore.YELLOW}### {Fore.CYAN}[{selected}{Fore.CYAN}] {Fore.GREEN}--- {Fore.BLUE}{v["name"]}{Fore.WHITE}')
+        print(f'{Fore.YELLOW}########################{Fore.WHITE}')
 
     # Start menu
     def start(self):
